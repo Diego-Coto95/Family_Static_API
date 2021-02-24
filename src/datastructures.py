@@ -15,24 +15,21 @@ class FamilyStructure:
         # example list of members
         self._members = [
             {
-                #"id": self._generateId(),
-                "id": 1,
+                "id": self._generateId(),
                 "first_name": "John",
                 "last_name": "Jackson",
                 "age": "33 Years old",
                 "Lucky Numbers": [7, 13, 22]
             },
             {
-                #"id": self._generateId(),
-                "id": 2,
+                "id": self._generateId(),
                 "first_name": "Jane",
                 "last_name":  "Jackson",
                 "age": "35 Years old",
                 "Lucky Numbers": [10, 14, 3]
             },
             {
-                #"id": self._generateId(),
-                "id": 3,
+                "id": self._generateId(),
                 "first_name": "Jimmy",
                 "last_name":  "Jackson",
                 "age": "5 Years old",
@@ -49,12 +46,21 @@ class FamilyStructure:
         return None
 
     def delete_member(self, id):
-        for position in range(len(self._members)):
-            if self._members[position]["id"] == id:
-                self._members.pop(position)
+        #for position in range(len(self._members)-1):
+        #    if self._members[position]["id"] == id:
+        #        self._members.pop(position)
             #else:
             #    raise Exception("Member not found")
-            return None
+        #return None
+        status = False
+        for i, item in enumerate(self._members, start=0):
+            if item["id"] == id:
+                self._members.pop(i)
+                status = True
+
+        return status
+
+
 
     def get_member(self, id):
         for i in self._members:

@@ -33,10 +33,10 @@ def handle_hello():
     members = jackson_family.get_all_members()
     return jsonify(members), 200
 
-@app.route('/member/<int:member_id>', methods=['GET'])
-def getOneMember(member_id):
+@app.route('/member/<int:id>', methods=['GET'])
+def getOneMember(id):
     # fill this method and update the return
-    member = jackson_family.get_member(member_id)
+    member = jackson_family.get_member(id)
     return jsonify(member) , 200
 
 
@@ -47,10 +47,10 @@ def addNewMember():
     jackson_family.add_member(request_body)
     return jsonify(request_body)
 
-@app.route('/member/<int:member_id>', methods=['DELETE'])
-def deleteOneMember(member_id):
+@app.route('/member/<int:id>', methods=['DELETE'])
+def deleteOneMember(id):
     # fill this method and update the return
-    member = jackson_family.delete_member(member_id)
+    jackson_family.delete_member(id)
     return jsonify({"done":True}) , 200
 
 
